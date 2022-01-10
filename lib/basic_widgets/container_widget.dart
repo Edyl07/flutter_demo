@@ -13,7 +13,8 @@ class MyHomePage extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            color: const Color.fromARGB(255, 66, 165, 245),
+            // color: const Color.fromARGB(255, 66, 165, 245),
+            color: Colors.white,
             alignment: const Alignment(0, 0),
             child: Container(
               color: Colors.green,
