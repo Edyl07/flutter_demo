@@ -10,13 +10,13 @@ class MyFittedBoxWidget extends StatelessWidget {
           title: const Text("Flutter FittedBox Widget Dempo"),
         ),
         body: Row(
-          children: [Expanded(
-            color: Colors.red,
-            child: Text(
-              "Some Example Text  Some Example Text Some Example Text Some Example Text Some Example Text Some Example Text Some Example Text Some Example Text Some Example Text ",
-              style: TextStyle(fontSize: 40),
-            ),
-          )],
+          // children: [Container(
+          //   color: Colors.red,
+          //   child: Text(
+          //     "Some Example Text  Some Example Text Some Example Text Some Example Text Some Example Text Some Example Text Some Example Text Some Example Text Some Example Text ",
+          //     style: TextStyle(fontSize: 40),
+          //   ),
+          // )],
         ));
   }
 }

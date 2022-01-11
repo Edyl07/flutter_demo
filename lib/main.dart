@@ -1,6 +1,7 @@
 //Packages
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/basic_widgets/fittedbox_widget.dart';
+import 'package:flutter_demo/screens/first_screen.dart';
+// import 'package:flutter_demo/basic_widgets/fittedbox_widget.dart';
 // import 'package:flutter_demo/basic_widgets/constraints_exapmle.dart';
 // import 'package:flutter_demo/basic_widgets/column_widget.dart';
 // import 'package:flutter_demo/basic_widgets/image_widget.dart';
@@ -22,13 +23,15 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity
           // brightness: Brightness.light,
         ),
         // home: const MyHomePage());
         // home: const MyImageWidget());
         // home: const MyColumnWidget());
         // home: const MyConstaintWidget());
-        home: const MyFittedBoxWidget());
+        // home: const MyFittedBoxWidget());
+        home: const FirstScreen());
   }
 }
 
