@@ -1,6 +1,9 @@
 //Packages
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/navigation/navigation_route_2.dart';
+// import 'package:flutter_demo/navigation/navigation_route_2.dart';
+import 'package:flutter_demo/navigation/navigation_with_arguments.dart';
+import 'package:flutter_demo/screens/home_screen.dart';
+import 'package:flutter_demo/screens/pass_arguments_screen.dart';
 // import 'package:flutter_demo/screens/first_screen.dart';
 // import 'package:flutter_demo/basic_widgets/fittedbox_widget.dart';
 // import 'package:flutter_demo/basic_widgets/constraints_exapmle.dart';
@@ -21,25 +24,44 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          // visualDensity: VisualDensity.adaptivePlatformDensity
-          // brightness: Brightness.light,
-        ),
-        initialRoute: '/',
-        routes:  {
-          '/': (context) => const FirstRoute(),
-          '/second': (context) => const SecondRoute(),
-        },
-        // home: const MyHomePage());
-        // home: const MyImageWidget());
-        // home: const MyColumnWidget());
-        // home: const MyConstaintWidget());
-        // home: const MyFittedBoxWidget());
-        // home: const FirstScreen());
-        // home: const FirstRoute()
-        );
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        // visualDensity: VisualDensity.adaptivePlatformDensity
+        // brightness: Brightness.light,
+      ),
+      initialRoute: '/',
+      routes: {
+        // '/': (context) => const FirstRoute(),
+        // '/second': (context) => const SecondRoute(),
+        ExtractArgumentScreen.routeName: (context) =>
+            const ExtractArgumentScreen()
+      },
+
+      onGenerateRoute: (settings) {
+        if (settings.name == PassArgumentsScreen.routeName) {
+          //Cast the arguments to the correct
+          //type: ScreenArguements
+          final args = settings.arguments as ScreenArguments;
+
+          //the, extract the required data from
+          //the arguments and pass the data to the
+          // correct screen
+          return MaterialPageRoute(builder: (context) {
+            return PassArgumentsScreen(
+                title: args.title, message: args.message);
+          });
+        }
+      },
+      // home: const MyHomePage());
+      // home: const MyImageWidget());
+      // home: const MyColumnWidget());
+      // home: const MyConstaintWidget());
+      // home: const MyFittedBoxWidget());
+      // home: const FirstScreen());
+      // home: const FirstRoute()
+      home: const HomeScreen(),
+    );
   }
 }
 
