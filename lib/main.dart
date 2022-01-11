@@ -1,6 +1,6 @@
 //Packages
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/navigation/nivigation_route.dart';
+import 'package:flutter_demo/navigation/navigation_route_2.dart';
 // import 'package:flutter_demo/screens/first_screen.dart';
 // import 'package:flutter_demo/basic_widgets/fittedbox_widget.dart';
 // import 'package:flutter_demo/basic_widgets/constraints_exapmle.dart';
@@ -24,16 +24,22 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity
+          // visualDensity: VisualDensity.adaptivePlatformDensity
           // brightness: Brightness.light,
         ),
+        initialRoute: '/',
+        routes:  {
+          '/': (context) => const FirstRoute(),
+          '/second': (context) => const SecondRoute(),
+        },
         // home: const MyHomePage());
         // home: const MyImageWidget());
         // home: const MyColumnWidget());
         // home: const MyConstaintWidget());
         // home: const MyFittedBoxWidget());
         // home: const FirstScreen());
-        home: const FirstRoute());
+        // home: const FirstRoute()
+        );
   }
 }
 
