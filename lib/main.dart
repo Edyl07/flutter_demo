@@ -1,6 +1,7 @@
 //Packages
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/screens/first_screen.dart';
+import 'package:flutter_demo/navigation/nivigation_route.dart';
+// import 'package:flutter_demo/screens/first_screen.dart';
 // import 'package:flutter_demo/basic_widgets/fittedbox_widget.dart';
 // import 'package:flutter_demo/basic_widgets/constraints_exapmle.dart';
 // import 'package:flutter_demo/basic_widgets/column_widget.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         // home: const MyColumnWidget());
         // home: const MyConstaintWidget());
         // home: const MyFittedBoxWidget());
-        home: const FirstScreen());
+        // home: const FirstScreen());
+        home: const FirstRoute());
   }
 }
 
