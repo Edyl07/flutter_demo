@@ -1,6 +1,7 @@
 //Packages
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/basic_widgets/gridview_widget.dart';
+// import 'package:flutter_demo/basic_widgets/gridview_widget.dart';
+import 'package:flutter_demo/pages/reoderable_page_view.dart';
 // import 'package:flutter_demo/basic_widgets/listview_widget.dart';
 // import 'package:flutter_demo/navigation/navigation_route_2.dart';
 // import 'package:flutter_demo/navigation/navigation_with_arguments.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.pink),
       // home: const MyListViewWidget(),
-      home: const MyGridViewWidget(),
+      // home: const MyGridViewWidget(),
+      home: ReoderableViewPage(),
     );
   }
 }
