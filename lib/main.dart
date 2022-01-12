@@ -1,9 +1,10 @@
 //Packages
 import 'package:flutter/material.dart';
 // import 'package:flutter_demo/navigation/navigation_route_2.dart';
-import 'package:flutter_demo/navigation/navigation_with_arguments.dart';
-import 'package:flutter_demo/screens/home_screen.dart';
-import 'package:flutter_demo/screens/pass_arguments_screen.dart';
+// import 'package:flutter_demo/navigation/navigation_with_arguments.dart';
+import 'package:flutter_demo/navigation/navigation_with_data.dart';
+// import 'package:flutter_demo/screens/home_screen.dart';
+// import 'package:flutter_demo/screens/pass_arguments_screen.dart';
 // import 'package:flutter_demo/screens/first_screen.dart';
 // import 'package:flutter_demo/basic_widgets/fittedbox_widget.dart';
 // import 'package:flutter_demo/basic_widgets/constraints_exapmle.dart';
@@ -20,50 +21,67 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        // visualDensity: VisualDensity.adaptivePlatformDensity
-        // brightness: Brightness.light,
-      ),
-      initialRoute: '/',
-      routes: {
-        // '/': (context) => const FirstRoute(),
-        // '/second': (context) => const SecondRoute(),
-        ExtractArgumentScreen.routeName: (context) =>
-            const ExtractArgumentScreen()
-      },
-
-      onGenerateRoute: (settings) {
-        if (settings.name == PassArgumentsScreen.routeName) {
-          //Cast the arguments to the correct
-          //type: ScreenArguements
-          final args = settings.arguments as ScreenArguments;
-
-          //the, extract the required data from
-          //the arguments and pass the data to the
-          // correct screen
-          return MaterialPageRoute(builder: (context) {
-            return PassArgumentsScreen(
-                title: args.title, message: args.message);
-          });
-        }
-      },
-      // home: const MyHomePage());
-      // home: const MyImageWidget());
-      // home: const MyColumnWidget());
-      // home: const MyConstaintWidget());
-      // home: const MyFittedBoxWidget());
-      // home: const FirstScreen());
-      // home: const FirstRoute()
-      home: const HomeScreen(),
+      theme: ThemeData(primarySwatch: Colors.pink),
+      home: TodosScreen(
+          todos: List.generate(
+              20,
+              (i) => Todo('Todo $i',
+                  'A description of what needs to be done for Todo $i'))),
     );
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//         // visualDensity: VisualDensity.adaptivePlatformDensity
+//         // brightness: Brightness.light,
+//       ),
+//       initialRoute: '/',
+//       routes: {
+//         // '/': (context) => const FirstRoute(),
+//         // '/second': (context) => const SecondRoute(),
+//         ExtractArgumentScreen.routeName: (context) =>
+//             const ExtractArgumentScreen()
+//       },
+
+//       onGenerateRoute: (settings) {
+//         if (settings.name == PassArgumentsScreen.routeName) {
+//           //Cast the arguments to the correct
+//           //type: ScreenArguements
+//           final args = settings.arguments as ScreenArguments;
+
+//           //the, extract the required data from
+//           //the arguments and pass the data to the
+//           // correct screen
+//           return MaterialPageRoute(builder: (context) {
+//             return PassArgumentsScreen(
+//                 title: args.title, message: args.message);
+//           });
+//         }
+//       },
+//       // home: const MyHomePage());
+//       // home: const MyImageWidget());
+//       // home: const MyColumnWidget());
+//       // home: const MyConstaintWidget());
+//       // home: const MyFittedBoxWidget());
+//       // home: const FirstScreen());
+//       // home: const FirstRoute()
+//       home: const HomeScreen(),
+//     );
+//   }
+// }
 
 // class MyHomePage extends StatelessWidget {
 //   const MyHomePage({Key? key}) : super(key: key);
