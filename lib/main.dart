@@ -1,8 +1,10 @@
 //Packages
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/basic_widgets/gridview_widget.dart';
+// import 'package:flutter_demo/basic_widgets/listview_widget.dart';
 // import 'package:flutter_demo/navigation/navigation_route_2.dart';
 // import 'package:flutter_demo/navigation/navigation_with_arguments.dart';
-import 'package:flutter_demo/navigation/navigation_with_data.dart';
+// import 'package:flutter_demo/navigation/navigation_with_data.dart';
 // import 'package:flutter_demo/screens/home_screen.dart';
 // import 'package:flutter_demo/screens/pass_arguments_screen.dart';
 // import 'package:flutter_demo/screens/first_screen.dart';
@@ -19,21 +21,35 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.pink),
-      home: TodosScreen(
-          todos: List.generate(
-              20,
-              (i) => Todo('Todo $i',
-                  'A description of what needs to be done for Todo $i'))),
+      // home: const MyListViewWidget(),
+      home: const MyGridViewWidget(),
     );
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(primarySwatch: Colors.pink),
+//       home: TodosScreen(
+//           todos: List.generate(
+//               20,
+//               (i) => Todo('Todo $i',
+//                   'A description of what needs to be done for Todo $i'))),
+//     );
+//   }
+// }
 
 // class MyApp extends StatelessWidget {
 //   const MyApp({Key? key}) : super(key: key);
