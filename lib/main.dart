@@ -1,6 +1,10 @@
 //Packages
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/animations/animated_page_route.dart';
+import 'package:flutter_demo/adapters/todo.dart';
+// import 'package:flutter_demo/screens/todo_list_screen.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+// import 'package:hive/hive.dart';
+// import 'package:flutter_demo/animations/animated_page_route.dart';
 // import 'package:flutter_demo/animations/animated_container_widget.dart';
 // import 'package:flutter_demo/animations/fade_in_out_widget.dart';
 // import 'package:flutter_demo/animations/hero_widget.dart';
@@ -21,25 +25,50 @@ import 'package:flutter_demo/animations/animated_page_route.dart';
 // Basic Widgets
 // import 'basic_widgets/container_widget.dart';
 
-void main() {
+const darkModeBox = 'darkModeTutorial';
+
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(TodoAdapter());
+  // await Hive.openBox<Todo>('todos');
+  await Hive.openBox(darkModeBox);
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.pink),
-      // home: const MyListViewWidget(),
-      // home: const MyGridViewWidget(),
-      // home: ReoderableViewPage(),
-      // home: const MainScreen(),
-      // home: const AnimatedContainerApp(),
-      // home: const OpacityScreen(),
-      home: const Page1(),
+    // return MaterialApp(
+    //   title: 'Flutter Demo',
+    //   theme: ThemeData(primarySwatch: Colors.pink),
+    //   // home: const MyListViewWidget(),
+    //   // home: const MyGridViewWidget(),
+    //   // home: ReoderableViewPage(),
+    //   // home: const MainScreen(),
+    //   // home: const AnimatedContainerApp(),
+    //   // home: const OpacityScreen(),
+    //   // home: const Page1(),
+    //   home: const TodoListScreen(),
+    // );
+
+    return ValueListenableBuilder(
+      valueListenable: Hive.box(darkModeBox).listenable(),
+      builder: (context, Box box, widget) {
+        var darkMode = box.get('darkMode', defaultValue: false);
+        return MaterialApp(
+          themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
+          darkTheme: ThemeData.dark(),
+          home: Scaffold(
+            body: Center(
+              child: Switch(value: darkMode, onChanged: (val) {
+                box.put('darkMode', !darkMode);
+              }),
+            ),
+          ),
+        );
+      },
     );
   }
 }
