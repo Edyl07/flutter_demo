@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       // home: ReoderableViewPage(),
       // home: const MainScreen(),
       // home: const AnimatedContainerApp(),
-      home: const OpacityWidget(),
+      home: const OpacityScreen(),
     );
   }
 }
