@@ -1,6 +1,8 @@
 //Packages
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/basic_widgets/hero_widget.dart';
+// import 'package:flutter_demo/animations/animated_container_widget.dart';
+import 'package:flutter_demo/animations/fade_in_out_widget.dart';
+// import 'package:flutter_demo/animations/hero_widget.dart';
 // import 'package:flutter_demo/basic_widgets/gridview_widget.dart';
 // import 'package:flutter_demo/pages/reoderable_page_view.dart';
 // import 'package:flutter_demo/basic_widgets/listview_widget.dart';
@@ -33,7 +35,9 @@ class MyApp extends StatelessWidget {
       // home: const MyListViewWidget(),
       // home: const MyGridViewWidget(),
       // home: ReoderableViewPage(),
-      home: const MainScreen(),
+      // home: const MainScreen(),
+      // home: const AnimatedContainerApp(),
+      home: const OpacityWidget(),
     );
   }
 }

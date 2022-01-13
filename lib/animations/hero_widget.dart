@@ -7,7 +7,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Main Screen"),
+          title: const Text("Harry Potter"),
         ),
         body: GestureDetector(
           onTap: () {
