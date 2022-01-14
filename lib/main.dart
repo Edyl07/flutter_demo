@@ -1,6 +1,7 @@
 //Packages
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/adapters/todo.dart';
+import 'package:flutter_demo/screens/dog/dog_list_screen.dart';
 // import 'package:flutter_demo/screens/todo_list_screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:hive/hive.dart';
@@ -40,9 +41,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(
-    //   title: 'Flutter Demo',
-    //   theme: ThemeData(primarySwatch: Colors.pink),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(primarySwatch: Colors.pink),
     //   // home: const MyListViewWidget(),
     //   // home: const MyGridViewWidget(),
     //   // home: ReoderableViewPage(),
@@ -51,25 +52,26 @@ class MyApp extends StatelessWidget {
     //   // home: const OpacityScreen(),
     //   // home: const Page1(),
     //   home: const TodoListScreen(),
-    // );
-
-    return ValueListenableBuilder(
-      valueListenable: Hive.box(darkModeBox).listenable(),
-      builder: (context, Box box, widget) {
-        var darkMode = box.get('darkMode', defaultValue: false);
-        return MaterialApp(
-          themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
-          darkTheme: ThemeData.dark(),
-          home: Scaffold(
-            body: Center(
-              child: Switch(value: darkMode, onChanged: (val) {
-                box.put('darkMode', !darkMode);
-              }),
-            ),
-          ),
-        );
-      },
+      home: const DogsListScreen(),
     );
+
+    // return ValueListenableBuilder(
+    //   valueListenable: Hive.box(darkModeBox).listenable(),
+    //   builder: (context, Box box, widget) {
+    //     var darkMode = box.get('darkMode', defaultValue: false);
+    //     return MaterialApp(
+    //       themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
+    //       darkTheme: ThemeData.dark(),
+    //       home: Scaffold(
+    //         body: Center(
+    //           child: Switch(value: darkMode, onChanged: (val) {
+    //             box.put('darkMode', !darkMode);
+    //           }),
+    //         ),
+    //       ),
+    //     );
+    //   },
+    // );
   }
 }
 
